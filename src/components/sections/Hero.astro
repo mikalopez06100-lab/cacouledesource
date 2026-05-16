@@ -15,7 +15,7 @@ const {
   title = 'Votre salle de bain mérite mieux qu\'une <em>simple intervention.</em>',
   subtitle = `Plombier installé dans le Var depuis ${site.artisanSince}, je conçois et réalise vos rénovations de salle de bain clé en main. Un seul interlocuteur, un devis détaillé, un travail soigné et garanti.`,
   showVisual = true,
-  heroImage,
+  heroImage = site.heroImage,
 } = Astro.props;
 ---
 
@@ -56,17 +56,14 @@ const {
       {showVisual && !compact && (
         <div class="hero-visual">
           <div class="hero-visual-card main">
-            {heroImage ? (
-              <img src={heroImage} alt="Rénovation salle de bain dans le Var — David COLLONGE" width="600" height="400" loading="eager" />
-            ) : (
-              <img
-                src="/images/placeholders/hero-chantier.svg"
-                alt="PLACEHOLDER — Photo de chantier rénovation salle de bain"
-                width="600"
-                height="400"
-                loading="eager"
-              />
-            )}
+            <img
+              src={heroImage}
+              alt="Rénovation salle de bain dans le Var — douche à l'italienne, David COLLONGE"
+              width="600"
+              height="400"
+              loading="eager"
+              fetchpriority="high"
+            />
           </div>
           <div class="hero-visual-card accent">
             <div class="accent-content">

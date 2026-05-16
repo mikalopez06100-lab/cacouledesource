@@ -16,6 +16,8 @@ export const site = {
   /** Photo portrait (section À propos) */
   portrait: '/images/portrait.webp',
   portraitFallback: '/images/portrait.jpg',
+  /** Photo hero accueil — rénovation SDB (meilleur rendu visuel) */
+  heroImage: '/images/chantiers/renovation-sdb-carrelage-pierre/apres.webp',
 
   // ——— NAP (Name, Address, Phone) ———
   phone: '+33650160238',
@@ -52,7 +54,7 @@ export const site = {
     instagram: 'https://www.instagram.com/cacouledesource',
   },
 
-  defaultOgImage: '/images/placeholders/hero-chantier.svg',
+  defaultOgImage: '/images/chantiers/renovation-sdb-carrelage-pierre/apres.webp',
 } as const;
 
 /** Communes desservies avec temps de trajet approximatif depuis La Garde */
