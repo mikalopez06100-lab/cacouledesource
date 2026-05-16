@@ -50,10 +50,6 @@ export const site = {
   hours: 'Lun-Ven 8h-18h',
   decennale: 'Assurance décennale en cours de validité',
 
-  social: {
-    instagram: 'https://www.instagram.com/cacouledesource',
-  },
-
   defaultOgImage: '/images/chantiers/renovation-sdb-carrelage-pierre/apres.webp',
 } as const;
 

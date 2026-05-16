@@ -2,7 +2,6 @@
 import type { CollectionEntry } from 'astro:content';
 import SectionHeader from '../ui/SectionHeader.astro';
 import ChantierGrid from '../chantiers/ChantierGrid.astro';
-import { site } from '../../config/site';
 import Icon from '../ui/Icon.astro';
 
 interface Props {
@@ -23,16 +22,6 @@ const { chantiers } = Astro.props;
     <div class="gallery-cta">
       <a href="/realisations" class="btn-secondary">
         Voir toutes les réalisations
-        <Icon name="arrow" size={18} />
-      </a>
-      <a
-        href={site.social.instagram}
-        class="btn-secondary"
-        style="margin-left: 12px"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
         <Icon name="arrow" size={18} />
       </a>
     </div>
