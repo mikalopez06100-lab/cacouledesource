@@ -1,0 +1,48 @@
+# Decap CMS — administration en français pour David COLLONGE
+backend:
+  name: git-gateway
+  branch: main
+
+# En local : utiliser le proxy Decap (voir README) ou éditer les fichiers Markdown directement
+local_backend: false
+
+locale: fr
+
+media_folder: public/images/chantiers
+public_folder: /images/chantiers
+
+collections:
+  - name: chantiers
+    label: Chantiers
+    label_singular: Chantier
+    folder: src/content/chantiers
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Titre du chantier, name: titre, widget: string, hint: "Ex. : Rénovation complète 6 m²" }
+      - { label: Ville, name: ville, widget: string, hint: "Commune du chantier (ex. Toulon, La Garde)" }
+      - label: Type d'intervention
+        name: type
+        widget: select
+        options:
+          - Rénovation salle de bain
+          - Plomberie
+          - Dépannage
+          - Cuisine
+      - { label: Date de fin des travaux, name: date, widget: datetime, date_format: true, time_format: false }
+      - { label: Surface (optionnel), name: surface, widget: string, required: false, hint: "Ex. 6 m²" }
+      - { label: Description courte (SEO), name: description, widget: text }
+      - { label: Photo AVANT travaux, name: photoAvant, widget: image }
+      - { label: Photo APRÈS travaux, name: photoApres, widget: image }
+      - label: Photos supplémentaires (optionnel)
+        name: galerie
+        widget: list
+        required: false
+        allow_add: true
+        summary: "{{fields.photo}}"
+        fields:
+          - { label: Photo, name: photo, widget: image }
+      - { label: Afficher sur la page d'accueil, name: miseEnAvant, widget: boolean, default: false, hint: "Cocher pour mettre en avant sur l'accueil (max 3 conseillé)" }
+      - { label: Texte détaillé du chantier, name: body, widget: markdown }

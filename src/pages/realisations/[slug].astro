@@ -1,0 +1,83 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import BeforeAfter from '../../components/chantiers/BeforeAfter.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+import JsonLd from '../../components/seo/JsonLd.astro';
+import { breadcrumbJsonLd, absoluteUrl } from '../../utils/seo';
+import { formatChantierDate, getChantierAlt } from '../../utils/chantiers';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const chantiers = await getCollection('chantiers');
+  return chantiers.map((chantier) => ({
+    params: { slug: chantier.id },
+    props: { chantier },
+  }));
+}
+
+const { chantier } = Astro.props;
+const { Content } = await render(chantier);
+const { titre, ville, type, date, surface, description, photoApres, galerie } = chantier.data;
+const path = `/realisations/${chantier.id}`;
+
+const imageObjects = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    contentUrl: absoluteUrl(chantier.data.photoApres),
+    description: getChantierAlt(chantier, 'après'),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    contentUrl: absoluteUrl(chantier.data.photoAvant),
+    description: getChantierAlt(chantier, 'avant'),
+  },
+];
+---
+
+<PageLayout
+  title={`${titre} — ${ville} | Réalisation plombier Var`}
+  description={description.slice(0, 160)}
+  path={path}
+  ogImage={photoApres}
+  breadcrumbs={[
+    { name: 'Réalisations', url: '/realisations' },
+    { name: titre, url: path },
+  ]}
+>
+  <JsonLd
+    slot="head"
+    data={[
+      ...imageObjects,
+      breadcrumbJsonLd([
+        { name: 'Accueil', url: '/' },
+        { name: 'Réalisations', url: '/realisations' },
+        { name: titre, url: path },
+      ]),
+    ]}
+  />
+
+  <article class="chantier-detail">
+    <div class="container">
+      <p class="eyebrow">{type} — {ville}</p>
+      <h1>{titre}</h1>
+      <p>
+        <strong>{ville}</strong>
+        {surface && ` · ${surface}`} · {formatChantierDate(date)}
+      </p>
+      <BeforeAfter chantier={chantier} />
+      <div class="prose-content">
+        <Content />
+      </div>
+      {galerie && galerie.length > 0 && (
+        <div class="chantier-gallery-extra">
+          {galerie.map((src, i) => (
+            <img src={src} alt={getChantierAlt(chantier, 'galerie', i)} width="400" height="300" loading="lazy" />
+          ))}
+        </div>
+      )}
+    </div>
+  </article>
+  <CTABanner />
+</PageLayout>

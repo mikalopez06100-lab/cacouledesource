@@ -1,0 +1,29 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { breadcrumbJsonLd } from '../utils/seo';
+import { pageMeta } from '../config/site';
+
+const meta = pageMeta.contact;
+const path = '/contact';
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={[{ name: 'Contact', url: path }]}
+>
+  <JsonLd
+    slot="head"
+    data={breadcrumbJsonLd([
+      { name: 'Accueil', url: '/' },
+      { name: 'Contact', url: path },
+    ])}
+  />
+
+  <div style="padding-top: 80px">
+    <ContactSection />
+  </div>
+</PageLayout>

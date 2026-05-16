@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getChantierAlt } from '../../utils/chantiers';
+
+interface Props {
+  chantier: CollectionEntry<'chantiers'>;
+}
+
+const { chantier } = Astro.props;
+const { photoAvant, photoApres } = chantier.data;
+---
+
+<div class="before-after">
+  <figure>
+    <img src={photoAvant} alt={getChantierAlt(chantier, 'avant')} width="600" height="450" loading="lazy" />
+    <figcaption>Avant travaux</figcaption>
+  </figure>
+  <figure>
+    <img src={photoApres} alt={getChantierAlt(chantier, 'après')} width="600" height="450" loading="lazy" />
+    <figcaption>Après travaux</figcaption>
+  </figure>
+</div>

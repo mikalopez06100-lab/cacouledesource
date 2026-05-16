@@ -1,0 +1,144 @@
+/* Variables et base — fidèles à la maquette Landing_page_Ca_Coule_de_Source.html */
+:root {
+  --primary: #0f4c75;
+  --secondary: #3282b8;
+  --accent: #c77d43;
+  --dark: #1c1c1c;
+  --light-bg: #f8f5f0;
+  --grey-soft: #ede7dd;
+  --white: #ffffff;
+  --shadow: 0 12px 40px rgba(15, 76, 117, 0.08);
+  --shadow-strong: 0 20px 60px rgba(15, 76, 117, 0.15);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--dark);
+  background: var(--light-bg);
+  line-height: 1.6;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+
+.section-header p {
+  font-size: 19px;
+  color: var(--dark);
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+/* Contenu long pages services */
+.prose-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prose-content p,
+.prose-content li {
+  font-size: 18px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.prose-content h2 {
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+.prose-content ul {
+  margin: 0 0 24px 24px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 200;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

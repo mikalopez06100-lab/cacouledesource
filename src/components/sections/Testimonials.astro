@@ -1,0 +1,28 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import { site, testimonials } from '../../config/site';
+---
+
+<section class="testimonials">
+  <div class="container">
+    <SectionHeader eyebrow="Témoignages" title="Ce qu'ils en disent." light />
+    <div class="rating-banner">
+      <div class="stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+      <small>{site.stats.noteGoogle} / 5 sur Google — basé sur les avis clients</small>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <article class="testimonial-card">
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>{t.quote}</p>
+          <footer class="testimonial-author">
+            <strong>{t.author}</strong>
+            <small>
+              {t.location} — {t.service}
+            </small>
+          </footer>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getChantierAlt } from '../../utils/chantiers';
+
+interface Props {
+  chantier: CollectionEntry<'chantiers'>;
+}
+
+const { chantier } = Astro.props;
+const { titre, ville, type, surface, photoApres } = chantier.data;
+const slug = chantier.id;
+const alt = getChantierAlt(chantier, 'après');
+---
+
+<a href={`/realisations/${slug}`} class="gallery-item">
+  <img src={photoApres} alt={alt} width="400" height="300" loading="lazy" decoding="async" />
+  <div class="overlay">
+    <span class="badge">{type}</span>
+    <div>
+      <h4>{ville}</h4>
+      <small>{titre}{surface ? ` — ${surface}` : ''}</small>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,46 @@
+---
+import { site } from '../../config/site';
+import Logo from '../ui/Logo.astro';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        {site.useLogo ? <Logo variant="footer" /> : (
+          <div class="logo">
+            {site.name}
+            <small>{site.owner}</small>
+          </div>
+        )}
+        <p>
+          Plombier indépendant dans le Var depuis {site.artisanSince}. Spécialiste rénovation salle de bain,
+          dépannage et plomberie générale chez les particuliers.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/renovation-salle-de-bain">Rénovation salle de bain</a></li>
+          <li><a href="/plomberie-depannage">Plomberie & dépannage</a></li>
+          <li><a href="/realisations">Réalisations</a></li>
+          <li><a href="/zones-interventions">Zones d'intervention</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mentions légales</h5>
+        <ul>
+          <li>SIREN {site.siren}</li>
+          <li>APE {site.ape}</li>
+          <li>{site.decennale}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} {site.name} — {site.owner}. Tous droits réservés.</span>
+      <span>Artisan plombier — La Garde (83130), Var</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,81 @@
+---
+import { site } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  compact?: boolean;
+  title?: string;
+  subtitle?: string;
+  showVisual?: boolean;
+  heroImage?: string;
+}
+
+const {
+  compact = false,
+  title = 'Votre salle de bain mérite mieux qu\'une <em>simple intervention.</em>',
+  subtitle = `Plombier installé dans le Var depuis ${site.artisanSince}, je conçois et réalise vos rénovations de salle de bain clé en main. Un seul interlocuteur, un devis détaillé, un travail soigné et garanti.`,
+  showVisual = true,
+  heroImage,
+} = Astro.props;
+---
+
+<section class:list={['hero', compact && 'hero--compact']}>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow">{site.tagline}</div>
+        <h1 set:html={title} />
+        <p class="hero-subtitle">{subtitle}</p>
+        <div class="hero-cta-group">
+          <a href={`tel:${site.phone}`} class="btn-primary">
+            <Icon name="phone" size={20} />
+            Appelez-moi
+          </a>
+          <a href="/contact" class="btn-secondary">
+            Demander un devis
+            <Icon name="arrow" size={18} />
+          </a>
+        </div>
+        {!compact && (
+          <div class="hero-trust">
+            <div class="trust-item">
+              <strong>{site.stats.experienceYears} ans</strong>
+              <span>d'expérience artisan</span>
+            </div>
+            <div class="trust-item">
+              <strong>{site.stats.noteGoogle}/5</strong>
+              <span>note moyenne clients</span>
+            </div>
+            <div class="trust-item">
+              <strong>100%</strong>
+              <span>devis détaillés</span>
+            </div>
+          </div>
+        )}
+      </div>
+      {showVisual && !compact && (
+        <div class="hero-visual">
+          <div class="hero-visual-card main">
+            {heroImage ? (
+              <img src={heroImage} alt="Rénovation salle de bain dans le Var — David COLLONGE" width="600" height="400" loading="eager" />
+            ) : (
+              <img
+                src="/images/placeholders/hero-chantier.svg"
+                alt="PLACEHOLDER — Photo de chantier rénovation salle de bain"
+                width="600"
+                height="400"
+                loading="eager"
+              />
+            )}
+          </div>
+          <div class="hero-visual-card accent">
+            <div class="accent-content">
+              <span class="number">{site.stats.sallesDeBainRenovees}+</span>
+              <span class="label">Salles de bain<br />rénovées</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

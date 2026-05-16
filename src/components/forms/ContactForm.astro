@@ -1,0 +1,51 @@
+---
+import { site } from '../../config/site';
+---
+
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="contact-form"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="sr-only">
+    <label>Ne pas remplir : <input name="bot-field" /></label>
+  </p>
+  <div class="form-group">
+    <label for="nom">Votre nom</label>
+    <input type="text" id="nom" name="nom" placeholder="Prénom Nom" required autocomplete="name" />
+  </div>
+  <div class="form-group">
+    <label for="tel">Téléphone</label>
+    <input type="tel" id="tel" name="tel" placeholder="06 ..." required autocomplete="tel" />
+  </div>
+  <div class="form-group">
+    <label for="ville">Ville</label>
+    <input type="text" id="ville" name="ville" placeholder="Toulon, La Garde..." required />
+  </div>
+  <div class="form-group">
+    <label for="message">Décrivez votre projet</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Rénovation salle de bain, fuite, installation chauffe-eau..."
+      required
+      minlength="10"></textarea>
+  </div>
+  <button type="submit" class="btn-form">Envoyer ma demande</button>
+  <p style="font-size: 12px; margin-top: 12px; opacity: 0.7">
+    Réponse sous 24–48 h ouvrées. Urgence : appelez le <a href={`tel:${site.phone}`} style="color: #fff">{site.phoneDisplay}</a>.
+  </p>
+</form>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const { title, description, path, ogImage, breadcrumbs } = Astro.props;
+const currentPath = path ?? Astro.url.pathname;
+---
+
+<BaseLayout title={title} description={description} path={currentPath} ogImage={ogImage}>
+  <slot name="head" slot="head" />
+  <Header currentPath={currentPath} />
+  <main id="main-content">
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <div class="container">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
+    )}
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

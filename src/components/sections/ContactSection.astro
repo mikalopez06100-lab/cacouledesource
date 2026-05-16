@@ -1,0 +1,52 @@
+---
+import { site } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import ContactForm from '../forms/ContactForm.astro';
+
+interface Props {
+  showForm?: boolean;
+}
+
+const { showForm = true } = Astro.props;
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow" style="color: var(--accent)">Contact</div>
+          <h2>Parlons de votre projet.</h2>
+          <p>
+            Que ce soit pour un dépannage rapide ou un projet de rénovation complète, je vous réponds rapidement avec un
+            premier diagnostic clair.
+          </p>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="icon"><Icon name="phone" /></div>
+              <div class="text">
+                <strong>Téléphone</strong>
+                <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon"><Icon name="mail" /></div>
+              <div class="text">
+                <strong>Email</strong>
+                <a href={`mailto:${site.email}`}>{site.email}</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon"><Icon name="clock" /></div>
+              <div class="text">
+                <strong>Disponibilité</strong>
+                <span>{site.hours}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {showForm && <ContactForm />}
+      </div>
+    </div>
+  </div>
+</section>

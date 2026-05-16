@@ -1,0 +1,52 @@
+---
+import { site, values } from '../../config/site';
+---
+
+<section class="presentation" id="presentation">
+  <div class="container">
+    <div class="presentation-grid">
+      <div class="portrait-frame">
+        <picture>
+          <source srcset={site.portrait} type="image/webp" />
+          <img
+            src={site.portraitFallback}
+            alt={`${site.owner}, plombier artisan à ${site.address.city} (Var) — rénovation salle de bain`}
+            width="480"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="portrait-name">
+          {site.owner}
+          <small>Plombier — {site.address.city}</small>
+        </div>
+      </div>
+      <div class="presentation-text">
+        <div class="eyebrow">À propos</div>
+        <h2>L'artisan qui transforme votre salle de bain en pièce à vivre.</h2>
+        <p>
+          Plombier indépendant depuis {site.artisanSince}, je suis basé à {site.address.city} et j'interviens dans tout
+          l'aire toulonnaise. Au fil des années, j'ai accompagné plus d'une centaine de familles dans leurs projets de
+          plomberie et de rénovation.
+        </p>
+        <p>
+          Aujourd'hui, ce qui me passionne le plus, ce sont les projets de rénovation complète de salle de bain. Une salle
+          de bain bien pensée, c'est dix minutes de bonheur chaque matin pour les vingt prochaines années.
+        </p>
+        <p>
+          David COLLONGE exerce sous le nom commercial {site.name} (SIREN {site.siren}) et a rénové plus de{' '}
+          {site.stats.sallesDeBainRenovees} salles de bain dans le Var.
+        </p>
+        <div class="values-grid">
+          {values.map((v) => (
+            <div class="value-card">
+              <h4>{v.title}</h4>
+              <p>{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

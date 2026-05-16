@@ -1,0 +1,87 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { serviceJsonLd } from '../components/seo/schemas/service';
+import { breadcrumbJsonLd, faqPageJsonLd } from '../utils/seo';
+import { faqPlomberie, pageMeta } from '../config/site';
+
+const meta = pageMeta.plomberie;
+const path = '/plomberie-depannage';
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={[{ name: 'Plomberie & dépannage', url: path }]}
+>
+  <JsonLd
+    slot="head"
+    data={[
+      serviceJsonLd(
+        'Plomberie et dépannage',
+        'Plomberie générale et dépannage urgent à La Garde, Toulon et le Var.',
+        path,
+      ),
+      faqPageJsonLd(faqPlomberie),
+      breadcrumbJsonLd([
+        { name: 'Accueil', url: '/' },
+        { name: 'Plomberie & dépannage', url: path },
+      ]),
+    ]}
+  />
+
+  <Hero
+    compact
+    showVisual={false}
+    title="Plombier dépannage & plomberie générale — <em>Toulon / Var</em>"
+    subtitle="Fuites, chauffe-eau, canalisations : intervention rapide avec devis avant travaux. Plombier indépendant à La Garde depuis 2013."
+  />
+
+  <section class="page-intro">
+    <div class="container prose-content">
+      <h1>Plombier Toulon et Var : dépannage et installations</h1>
+      <p>
+        Ça Coule de Source, l'activité de David COLLONGE (SIREN 792 487 837), couvre la plomberie générale et le
+        dépannage pour les particuliers du grand Toulonnais. Basé à La Garde, l'artisan intervient à Toulon, La Seyne,
+        Six-Fours, Hyères et dans tout le Var à moins d'environ 40 minutes de route.
+      </p>
+      <h2>Dépannage plomberie : réactivité et transparence</h2>
+      <p>
+        En cas de fuite d'eau, canalisation bouchée ou robinetterie défectueuse, contactez David COLLONGE par téléphone.
+        Un diagnostic clair est établi avant toute intervention ; le tarif est annoncé sans surprise.
+      </p>
+      <p>
+        Les urgences (fuite importante) sont traitées en priorité selon les disponibilités du jour. Le dépannage
+        plomberie La Garde et Toulon fait partie des interventions les plus fréquentes de l'entreprise.
+      </p>
+      <h2>Plomberie générale : installations et mises aux normes</h2>
+      <ul>
+        <li>Pose et remplacement de chauffe-eau</li>
+        <li>Installation de chaudière gaz</li>
+        <li>Création de réseaux eau et gaz</li>
+        <li>Pose d'équipements sanitaires</li>
+        <li>Mise aux normes de l'installation existante</li>
+      </ul>
+      <p>
+        Chaque chantier fait l'objet d'un devis détaillé. David COLLONGE est votre interlocuteur unique, de la prise de
+        contact à la fin des travaux.
+      </p>
+      <h2>Zone couverte</h2>
+      <p>
+        L'activité couvre 18 communes du Var : Toulon, La Valette-du-Var, La Crau, Cuers, Sanary-sur-Mer, Bandol, etc.
+        Consultez la page zones d'intervention pour la liste complète avec temps de trajet depuis La Garde.
+      </p>
+    </div>
+  </section>
+
+  <ServicesGrid showHeader={false} />
+  <FAQ items={faqPlomberie} title="FAQ plomberie & dépannage" />
+  <CTABanner />
+  <ContactSection showForm={false} />
+</PageLayout>

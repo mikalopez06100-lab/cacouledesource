@@ -1,0 +1,38 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ServiceCard from './ServiceCard.astro';
+import { services } from '../../config/site';
+
+interface Props {
+  showHeader?: boolean;
+  highlightOnly?: string;
+}
+
+const { showHeader = true, highlightOnly } = Astro.props;
+const list = highlightOnly ? services.filter((s) => s.id === highlightOnly) : services;
+---
+
+<section class="services" id="services">
+  <div class="container">
+    {showHeader && (
+      <SectionHeader
+        eyebrow="Mes services"
+        title="De la fuite urgente au projet de rénovation complet."
+        description="Je vous accompagne sur trois grandes familles d'interventions, du dépannage rapide à la transformation totale de votre salle de bain."
+      />
+    )}
+    <div class="services-grid">
+      {list.map((s) => (
+        <ServiceCard
+          title={s.title}
+          description={s.description}
+          items={s.items}
+          featured={s.featured}
+          tag={'tag' in s ? s.tag : undefined}
+          icon={s.icon}
+          href={s.slug}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+---
+import { site } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import Logo from '../ui/Logo.astro';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Accueil' },
+  { href: '/renovation-salle-de-bain', label: 'Rénovation SDB' },
+  { href: '/plomberie-depannage', label: 'Plomberie' },
+  { href: '/realisations', label: 'Réalisations' },
+  { href: '/zones-interventions', label: 'Zones' },
+  { href: '/contact', label: 'Contact', cta: true },
+];
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<nav class="site-nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    {site.useLogo ? <Logo variant="header" /> : (
+      <a href="/" class="logo">
+        {site.name}
+        <small>{site.owner}</small>
+      </a>
+    )}
+
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      id="nav-toggle"
+    >
+      <span class="sr-only">Ouvrir le menu</span>
+      <Icon name="menu" size={28} />
+    </button>
+
+    <div class="nav-links" id="nav-menu">
+      {
+        links.map((link) =>
+          link.cta ? (
+            <a href={link.href} class="nav-cta">
+              Demander un devis
+            </a>
+          ) : (
+            <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+              {link.label}
+            </a>
+          ),
+        )
+      }
+    </div>
+  </div>
+</nav>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+</script>

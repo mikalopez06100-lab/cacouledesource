@@ -1,0 +1,21 @@
+---
+import { site } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+---
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Un projet de salle de bain ou une urgence plomberie ?</h2>
+    <p>Devis gratuit — intervention sur Toulon, La Garde et le Var.</p>
+    <div class="hero-cta-group">
+      <a href={`tel:${site.phone}`} class="btn-primary">
+        <Icon name="phone" size={20} />
+        {site.phoneDisplay}
+      </a>
+      <a href="/contact" class="btn-secondary">
+        Formulaire de contact
+        <Icon name="arrow" size={18} />
+      </a>
+    </div>
+  </div>
+</section>

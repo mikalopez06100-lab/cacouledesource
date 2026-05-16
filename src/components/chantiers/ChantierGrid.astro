@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ChantierCard from './ChantierCard.astro';
+
+interface Props {
+  chantiers: CollectionEntry<'chantiers'>[];
+  showFilters?: boolean;
+  activeType?: string | null;
+}
+
+const { chantiers, showFilters = false, activeType = null } = Astro.props;
+
+const types = ['Tous', 'Rénovation salle de bain', 'Plomberie', 'Dépannage', 'Cuisine'] as const;
+---
+
+{showFilters && (
+  <nav class="gallery-filters" aria-label="Filtrer par type de chantier">
+    {types.map((t) => {
+      const isAll = t === 'Tous';
+      const href = isAll ? '/realisations' : `/realisations?type=${encodeURIComponent(t)}`;
+      const active = isAll ? !activeType : activeType === t;
+      return (
+        <a href={href} class:list={[active && 'is-active']}>
+          {t}
+        </a>
+      );
+    })}
+  </nav>
+)}
+
+<div class="gallery-grid">
+  {chantiers.length === 0 ? (
+    <p>Aucun chantier pour ce filtre.</p>
+  ) : (
+    chantiers.map((c) => <ChantierCard chantier={c} />)
+  )}
+</div>

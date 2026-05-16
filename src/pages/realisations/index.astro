@@ -1,0 +1,46 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import ChantierGrid from '../../components/chantiers/ChantierGrid.astro';
+import JsonLd from '../../components/seo/JsonLd.astro';
+import { breadcrumbJsonLd } from '../../utils/seo';
+import { pageMeta } from '../../config/site';
+import { getCollection } from 'astro:content';
+
+const activeType = Astro.url.searchParams.get('type');
+let chantiers = await getCollection('chantiers');
+chantiers = chantiers.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+if (activeType) {
+  chantiers = chantiers.filter((c) => c.data.type === activeType);
+}
+
+const meta = pageMeta.realisations;
+const path = '/realisations';
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={[{ name: 'Réalisations', url: path }]}
+>
+  <JsonLd
+    slot="head"
+    data={breadcrumbJsonLd([
+      { name: 'Accueil', url: '/' },
+      { name: 'Réalisations', url: path },
+    ])}
+  />
+
+  <section class="gallery" style="padding-top: 140px">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Réalisations"
+        title="Avant / après : chantiers dans le Var"
+        description="Rénovations de salles de bain, plomberie et dépannages réalisés par David COLLONGE — photos authentiques de chantiers."
+      />
+      <ChantierGrid chantiers={chantiers} showFilters activeType={activeType} />
+    </div>
+  </section>
+</PageLayout>

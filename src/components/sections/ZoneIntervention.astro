@@ -1,0 +1,56 @@
+---
+import { communes, site } from '../../config/site';
+
+interface Props {
+  detailed?: boolean;
+}
+
+const { detailed = false } = Astro.props;
+const list = detailed ? communes : communes.slice(0, 8);
+---
+
+<section class="zone">
+  <div class="container">
+    <div class="zone-grid">
+      <div class="zone-text">
+        <div class="eyebrow">Zone d'intervention</div>
+        <h2>Je travaille dans tout le grand Toulonnais.</h2>
+        <p>
+          Basé à {site.address.city}, j'interviens dans un rayon d'environ {site.stats.rayonMinutes} minutes autour, sur
+          tout le grand Toulonnais et les communes du Var voisines. Je privilégie la qualité au volume : un nombre limité
+          de chantiers à la fois, un suivi rapproché.
+        </p>
+        {detailed ? (
+          <ul class="communes-detail">
+            {communes.map((c) => (
+              <li>
+                <span>{c.name}</span>
+                <span>~{c.travelMinutes} min depuis La Garde</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <div class="communes-list">
+              {list.map((c) => (
+                <span>{c.name}</span>
+              ))}
+            </div>
+            <p style="margin-top: 24px">
+              <a href="/zones-interventions">Voir toutes les communes desservies →</a>
+            </p>
+          </>
+        )}
+      </div>
+      <div class="zone-visual">
+        <div class="big-number">{site.stats.rayonMinutes}</div>
+        <div class="big-number-label">
+          minutes maximum<br />autour de La Garde
+        </div>
+        <hr />
+        <div class="secondary-stat">{site.stats.communesCount}+</div>
+        <div class="secondary-label">communes desservies dans le Var</div>
+      </div>
+    </div>
+  </div>
+</section>

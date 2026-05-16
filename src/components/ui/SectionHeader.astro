@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  light?: boolean;
+}
+
+const { eyebrow, title, description, light = false } = Astro.props;
+const eyebrowStyle = light ? 'color: var(--accent)' : undefined;
+---
+
+<div class="section-header">
+  <div class="eyebrow" style={eyebrowStyle}>{eyebrow}</div>
+  <h2>{title}</h2>
+  {description && <p>{description}</p>}
+</div>

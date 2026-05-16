@@ -1,0 +1,23 @@
+---
+import type { FaqItem } from '../../config/site';
+import SectionHeader from '../ui/SectionHeader.astro';
+
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+
+const { items, title = 'Questions fréquentes' } = Astro.props;
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <SectionHeader eyebrow="FAQ" title={title} description="Réponses claires aux questions les plus posées." />
+    {items.map((item) => (
+      <details>
+        <summary>{item.question}</summary>
+        <p class="answer">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>

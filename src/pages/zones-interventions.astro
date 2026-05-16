@@ -1,0 +1,44 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ZoneIntervention from '../components/sections/ZoneIntervention.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { localBusinessJsonLd } from '../components/seo/schemas/localBusiness';
+import { breadcrumbJsonLd } from '../utils/seo';
+import { pageMeta } from '../config/site';
+
+const meta = pageMeta.zones;
+const path = '/zones-interventions';
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={[{ name: "Zones d'intervention", url: path }]}
+>
+  <JsonLd
+    slot="head"
+    data={[
+      localBusinessJsonLd(),
+      breadcrumbJsonLd([
+        { name: 'Accueil', url: '/' },
+        { name: "Zones d'intervention", url: path },
+      ]),
+    ]}
+  />
+
+  <section class="page-intro" style="padding-top: 140px">
+    <div class="container prose-content">
+      <h1>Zone d'intervention plombier — Var et Toulon</h1>
+      <p>
+        David COLLONGE, plombier à La Garde (83130), intervient chez les particuliers dans un rayon d'environ 40
+        minutes autour de son atelier. L'entreprise Ça Coule de Source dessert 18 communes du grand Toulonnais et du
+        Var pour la rénovation salle de bain, la plomberie générale et le dépannage.
+      </p>
+    </div>
+  </section>
+
+  <ZoneIntervention detailed />
+  <CTABanner />
+</PageLayout>

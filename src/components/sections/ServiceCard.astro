@@ -1,0 +1,48 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  items: readonly string[];
+  featured?: boolean;
+  tag?: string;
+  icon: 'bath' | 'wrench' | 'bolt';
+  href?: string;
+}
+
+const { title, description, items, featured = false, tag, icon, href } = Astro.props;
+const cls = ['service-card', featured && 'featured', href && 'service-card-link'].filter(Boolean).join(' ');
+---
+
+{
+  href ? (
+    <a href={href} class={cls}>
+      {tag && <span class="featured-tag">{tag}</span>}
+      <div class="service-icon">
+        <Icon name={icon} size={28} />
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <ul>
+        {items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </a>
+  ) : (
+    <div class={cls}>
+      {tag && <span class="featured-tag">{tag}</span>}
+      <div class="service-icon">
+        <Icon name={icon} size={28} />
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <ul>
+        {items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}

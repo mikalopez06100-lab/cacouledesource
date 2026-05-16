@@ -1,0 +1,97 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { serviceJsonLd } from '../components/seo/schemas/service';
+import { breadcrumbJsonLd, faqPageJsonLd } from '../utils/seo';
+import { faqRenovation, pageMeta, site } from '../config/site';
+
+const meta = pageMeta.renovation;
+const path = '/renovation-salle-de-bain';
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={[
+    { name: 'Rénovation salle de bain', url: path },
+  ]}
+>
+  <JsonLd
+    slot="head"
+    data={[
+      serviceJsonLd(
+        'Rénovation salle de bain',
+        'Rénovation complète de salle de bain clé en main à Toulon, La Garde et dans le Var.',
+        path,
+      ),
+      faqPageJsonLd(faqRenovation),
+      breadcrumbJsonLd([
+        { name: 'Accueil', url: '/' },
+        { name: 'Rénovation salle de bain', url: path },
+      ]),
+    ]}
+  />
+
+  <Hero
+    compact
+    showVisual={false}
+    title="Rénovation de salle de bain à Toulon et dans le <em>Var</em>"
+    subtitle="Projet complet clé en main : plomberie, coordination des corps d'état, devis détaillé. Artisan plombier indépendant depuis 2013, basé à La Garde."
+  />
+
+  <section class="page-intro">
+    <div class="container prose-content">
+      <h1>Rénovation salle de bain Var — votre projet clé en main</h1>
+      <p>
+        David COLLONGE, plombier à La Garde (83130), est spécialisé dans la rénovation complète de salles de bain pour
+        les particuliers du grand Toulonnais. Depuis {site.artisanSince}, plus de {site.stats.sallesDeBainRenovees} salles de bain ont été transformées sous la
+        marque Ça Coule de Source (SIREN 792 487 837).
+      </p>
+      <h2>Un seul artisan, un devis transparent</h2>
+      <p>
+        Chaque projet démarre par une visite sur place à Toulon, Hyères, La Crau ou dans l'une des 18 communes
+        desservies. Le devis liste précisément la dépose, la plomberie, la pose des équipements (receveur, vasque,
+        robinetterie) et la coordination éventuelle du carrelage, de l'électricité ou de la plâtrerie.
+      </p>
+      <p>
+        Vous n'avez qu'un interlocuteur : David reste joignable du premier rendez-vous à la réception du chantier. Tous
+        les travaux sont couverts par une assurance décennale à jour.
+      </p>
+      <h2>Ce que comprend une rénovation complète</h2>
+      <ul>
+        <li>Conception et conseils d'agencement (optimisation des petites surfaces)</li>
+        <li>Dépose intégrale de l'ancienne installation</li>
+        <li>Plomberie complète : alimentation, évacuations, étanchéité</li>
+        <li>Pose receveur ou baignoire, vasque, WC, robinetterie</li>
+        <li>Coordination des autres corps d'état si nécessaire</li>
+        <li>Livraison d'une salle de bain prête à l'emploi</li>
+      </ul>
+      <h2>Pourquoi faire appel à un plombier spécialisé salle de bain ?</h2>
+      <p>
+        La salle de bain concentre eau, évacuations et étanchéité : une erreur de pose coûte cher. Un plombier Var
+        habitué aux rénovations complètes anticipe les contraintes techniques (pente, diamètres, accès) et vous évite les
+        mauvaises surprises après carrelage.
+      </p>
+      <p>
+        Que vous soyez à Toulon centre, à la Valette-du-Var ou à Hyères, le délai d'intervention depuis La Garde reste
+        court (environ 40 minutes maximum dans la zone habituelle).
+      </p>
+      <h2>Demandez votre devis gratuit</h2>
+      <p>
+        Décrivez votre projet (surface, état actuel, délais souhaités) par téléphone ou via le formulaire de contact.
+        David COLLONGE vous répond sous 24 à 48 heures ouvrées avec un premier diagnostic et propose une visite gratuite.
+      </p>
+    </div>
+  </section>
+
+  <ServicesGrid showHeader={false} highlightOnly="renovation" />
+  <FAQ items={faqRenovation} title="FAQ rénovation salle de bain" />
+  <CTABanner />
+  <ContactSection showForm={false} />
+</PageLayout>

@@ -1,17 +1,36 @@
 ---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Presentation from '../components/sections/Presentation.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import GalleryPreview from '../components/sections/GalleryPreview.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import ZoneIntervention from '../components/sections/ZoneIntervention.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { localBusinessJsonLd } from '../components/seo/schemas/localBusiness';
+import { faqPageJsonLd } from '../utils/seo';
+import { faqGeneral, pageMeta } from '../config/site';
+import { getCollection } from 'astro:content';
 
+const chantiers = (await getCollection('chantiers'))
+  .filter((c) => c.data.miseEnAvant)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const meta = pageMeta.home;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PageLayout title={meta.title} description={meta.description}>
+  <JsonLd slot="head" data={[localBusinessJsonLd(), faqPageJsonLd(faqGeneral)]} />
+
+  <Hero />
+  <Presentation />
+  <ServicesGrid />
+  <GalleryPreview chantiers={chantiers} />
+  <Testimonials />
+  <ZoneIntervention />
+  <FAQ items={faqGeneral} />
+  <ContactSection />
+</PageLayout>
