@@ -7,7 +7,7 @@ surface: 8 m²
 description: Création d'une douche à l'italienne et pose d'un meuble double vasque à Hyères — coordination carrelage incluse.
 photoAvant: /images/placeholders/chantier-avant.svg
 photoApres: /images/placeholders/chantier-apres.svg
-miseEnAvant: true
+miseEnAvant: false
 ---
 
 Projet de **rénovation salle de bain à Hyères** pour une famille : remplacement baignoire par douche à l'italienne, double vasque et nouvelle robinetterie thermostatique.

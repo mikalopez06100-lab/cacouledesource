@@ -6,7 +6,7 @@ date: 2025-01-20
 description: Création des arrivées d'eau et évacuations pour une cuisine réaménagée à La Crau.
 photoAvant: /images/placeholders/chantier-avant.svg
 photoApres: /images/placeholders/chantier-apres.svg
-miseEnAvant: true
+miseEnAvant: false
 ---
 
 À **La Crau**, création complète du réseau d'alimentation et d'évacuation pour une cuisine ouverte : évier, lave-vaisselle et arrivée pour réfrigérateur américain.

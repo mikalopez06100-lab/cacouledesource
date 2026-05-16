@@ -24,15 +24,19 @@ const imageObjects = [
   {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
-    contentUrl: absoluteUrl(chantier.data.photoApres),
+    contentUrl: absoluteUrl(photoApres),
     description: getChantierAlt(chantier, 'après'),
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'ImageObject',
-    contentUrl: absoluteUrl(chantier.data.photoAvant),
-    description: getChantierAlt(chantier, 'avant'),
-  },
+  ...(chantier.data.photoAvant
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ImageObject',
+          contentUrl: absoluteUrl(chantier.data.photoAvant),
+          description: getChantierAlt(chantier, 'avant'),
+        },
+      ]
+    : []),
 ];
 ---
 

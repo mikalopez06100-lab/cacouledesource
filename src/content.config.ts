@@ -18,7 +18,7 @@ const chantiers = defineCollection({
     surface: z.string().optional(),
     description: z.string(),
     /** Chemins publics (/images/chantiers/...) — compatibles Decap CMS */
-    photoAvant: z.string(),
+    photoAvant: z.string().optional(),
     photoApres: z.string(),
     galerie: z.array(z.string()).optional(),
     miseEnAvant: z.boolean().default(false),

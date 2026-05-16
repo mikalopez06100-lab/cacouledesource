@@ -8,15 +8,20 @@ interface Props {
 
 const { chantier } = Astro.props;
 const { photoAvant, photoApres } = chantier.data;
+const single = !photoAvant;
 ---
 
-<div class="before-after">
-  <figure>
-    <img src={photoAvant} alt={getChantierAlt(chantier, 'avant')} width="600" height="450" loading="lazy" />
-    <figcaption>Avant travaux</figcaption>
-  </figure>
+<div class:list={['before-after', single && 'before-after--single']}>
+  {
+    photoAvant && (
+      <figure>
+        <img src={photoAvant} alt={getChantierAlt(chantier, 'avant')} width="600" height="450" loading="lazy" />
+        <figcaption>Avant travaux</figcaption>
+      </figure>
+    )
+  }
   <figure>
     <img src={photoApres} alt={getChantierAlt(chantier, 'après')} width="600" height="450" loading="lazy" />
-    <figcaption>Après travaux</figcaption>
+    <figcaption>{photoAvant ? 'Après travaux' : 'Réalisation'}</figcaption>
   </figure>
 </div>

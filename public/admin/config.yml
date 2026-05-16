@@ -34,7 +34,7 @@ collections:
       - { label: Date de fin des travaux, name: date, widget: datetime, date_format: true, time_format: false }
       - { label: Surface (optionnel), name: surface, widget: string, required: false, hint: "Ex. 6 m²" }
       - { label: Description courte (SEO), name: description, widget: text }
-      - { label: Photo AVANT travaux, name: photoAvant, widget: image }
+      - { label: Photo AVANT travaux (optionnel), name: photoAvant, widget: image, required: false, hint: "Laisser vide si pas de photo avant" }
       - { label: Photo APRÈS travaux, name: photoApres, widget: image }
       - label: Photos supplémentaires (optionnel)
         name: galerie
