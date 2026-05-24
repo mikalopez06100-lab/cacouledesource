@@ -1,6 +1,6 @@
 ---
 titre: Transformation baignoire en douche à l'italienne
-ville: Var
+ville: Le Lavandou
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Remplacement d'une baignoire par une douche plain-pied — carrelage gris, niche, paroi vitrée et meuble bois."

@@ -1,6 +1,6 @@
 ---
 titre: Rénovation sous combles — poutres & miroir LED
-ville: Var
+ville: Six-Fours-les-Plages
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Salle de bain sous rampant avec poutres apparentes — douche vitrée, carrelage vert d'eau, meuble gris et miroir rond rétroéclairé."

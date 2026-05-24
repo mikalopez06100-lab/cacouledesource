@@ -1,6 +1,6 @@
 ---
 titre: Rénovation complète — douche à l'italienne
-ville: Var
+ville: La Garde
 type: Rénovation salle de bain
 date: 2026-04-29
 surface: ""

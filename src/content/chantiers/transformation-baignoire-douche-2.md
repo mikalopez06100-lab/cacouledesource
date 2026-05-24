@@ -1,6 +1,6 @@
 ---
 titre: Transformation baignoire en douche — gris & miroir rond
-ville: Var
+ville: Brignoles
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Remplacement baignoire par douche plain-pied, carrelage gris, colonne de douche et meuble bois avec miroir organique."

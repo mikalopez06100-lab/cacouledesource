@@ -1,6 +1,6 @@
 ---
 titre: WC suspendu — carrelage motif & vert olive
-ville: Var
+ville: Six-Fours-les-Plages
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Rénovation d'un WC indépendant — toilettes suspendues, lave-mains, carrelage géométrique et murs vert olive."

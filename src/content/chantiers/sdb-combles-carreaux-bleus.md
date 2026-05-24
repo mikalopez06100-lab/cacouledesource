@@ -1,6 +1,6 @@
 ---
 titre: Création salle d'eau sous combles
-ville: Var
+ville: Le Pradet
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Aménagement d'une salle d'eau dans les combles — carrelage géométrique bleu, vasque d'angle et WC."

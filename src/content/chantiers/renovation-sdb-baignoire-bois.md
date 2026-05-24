@@ -1,6 +1,6 @@
 ---
 titre: Rénovation — baignoire habillée bois & miroir LED
-ville: Var
+ville: Six-Fours-les-Plages
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Rénovation salle de bain avec baignoire, habillage bois, carrelage pierre, meuble vasque et pare-douche verre dépoli."

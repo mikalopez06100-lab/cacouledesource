@@ -1,6 +1,6 @@
 ---
 titre: Petite salle de bain — meuble bois & vasque noire
-ville: Var
+ville: La Seyne-sur-Mer
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Rénovation d'une salle de bain étroite — douche vitrée, carrelage bois, meuble suspendu et miroir LED."

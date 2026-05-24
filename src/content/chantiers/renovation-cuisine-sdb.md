@@ -1,6 +1,6 @@
 ---
 titre: Rénovation complète cuisine et salle de bain
-ville: Var
+ville: Toulon
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Gros chantier — réfection cuisine (électroménager, plans de travail) et salle de bain carrelée avec douche et miroir LED."

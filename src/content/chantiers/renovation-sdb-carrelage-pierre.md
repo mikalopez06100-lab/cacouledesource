@@ -1,6 +1,6 @@
 ---
 titre: Rénovation complète — douche et miroir LED
-ville: Var
+ville: Toulon
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Rénovation totale d'une petite salle de bain — douche plain-pied, carrelage pierre, meuble gris et miroir rond rétroéclairé."

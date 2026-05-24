@@ -1,6 +1,6 @@
 ---
 titre: Rénovation PMR — douche à l'italienne & accessibilité
-ville: Var
+ville: Toulon
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Transformation complète d'une salle de bain — douche plain-pied, banc intégré, barre d'appui et aménagement accessible."

@@ -1,6 +1,6 @@
 ---
 titre: Rénovation complète — carrelage gris & robinetterie noire
-ville: Var
+ville: Six-Fours-les-Plages
 type: Rénovation salle de bain
 date: 2026-04-29
 description: "Rénovation salle de bain — double vasque noire, douche à l'italienne, carrelage grand format gris et paroi type atelier."
