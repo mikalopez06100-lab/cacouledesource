@@ -48,7 +48,7 @@ export const site = {
     rayonMinutes: 40,
   },
   hours: 'Lun-Ven 8h-18h',
-  decennale: 'Assurance décennale en cours de validité',
+  decennale: 'Assurance décennale enregistrée chez Allianz',
 
   defaultOgImage: '/images/chantiers/renovation-sdb-carrelage-pierre/apres.webp',
 } as const;
