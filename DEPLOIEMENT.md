@@ -156,7 +156,11 @@ Fichiers concernés :
 Après le premier déploiement :
 
 1. **Forms** dans le dashboard Netlify → le formulaire `contact` doit apparaître.
-2. Configurez les **notifications email** du formulaire `contact` vers **`cacouledesource83@gmail.com`** (Forms → Form notifications → Add notification → Email).
+2. Une fois le formulaire **`contact`** visible dans **Formulaires** (après deploy) :
+   - Cliquez sur **`contact`**
+   - **Notifications** → **Add notification** → **Email notification**
+   - Adresse : **`cacouledesource83@gmail.com`**
+   - Si la liste est vide : **Déploie** → **Options** → **Clear cache and deploy site**, puis revérifier **Formulaires**.
 3. Testez depuis l’accueil (`/#contact`) et depuis `/contact/` : vous devez arriver sur `/merci/`, pas sur une page 404 Netlify.
 
 ---
