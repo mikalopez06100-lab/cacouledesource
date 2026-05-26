@@ -22,7 +22,7 @@ export const site = {
   // ——— NAP (Name, Address, Phone) ———
   phone: '+33650160238',
   phoneDisplay: '06 50 16 02 38',
-  email: 'contact@cacouledesource.fr',
+  email: 'cacouledesource83@gmail.com',
   address: {
     street: 'Adresse à renseigner', // PLACEHOLDER
     city: 'La Garde',
@@ -249,6 +249,6 @@ export const pageMeta = {
   contact: {
     title: 'Contact & devis gratuit — Plombier La Garde (Var)',
     description:
-      'Devis plomberie ou rénovation salle de bain dans le Var. David COLLONGE — 06 50 16 02 38, contact@cacouledesource.fr. Réponse rapide.',
+      'Devis plomberie ou rénovation salle de bain dans le Var. David COLLONGE — 06 50 16 02 38, cacouledesource83@gmail.com. Réponse rapide.',
   },
 } as const;

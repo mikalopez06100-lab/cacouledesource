@@ -69,7 +69,7 @@ Sans Git Gateway, l’admin affiche les chantiers mais ne peut pas publier.
 ## 5. Inviter David par email
 
 1. **Identity** → **Invite users**.
-2. Saisissez l’email professionnel de David (ex. `contact@cacouledesource.fr`).
+2. Saisissez l’email de David : `cacouledesource83@gmail.com`.
 3. Envoyez l’invitation.
 4. David reçoit un email Netlify → lien pour **définir son mot de passe**.
 
@@ -156,7 +156,7 @@ Fichiers concernés :
 Après le premier déploiement :
 
 1. **Forms** dans le dashboard Netlify → le formulaire `contact` doit apparaître.
-2. Configurez les **notifications email** vers David (ex. `contact@cacouledesource.fr`).
+2. Configurez les **notifications email** du formulaire `contact` vers **`cacouledesource83@gmail.com`** (Forms → Form notifications → Add notification → Email).
 3. Testez depuis l’accueil (`/#contact`) et depuis `/contact/` : vous devez arriver sur `/merci/`, pas sur une page 404 Netlify.
 
 ---
