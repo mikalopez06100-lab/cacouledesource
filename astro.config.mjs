@@ -8,7 +8,12 @@ const site = 'https://cacouledesource.fr';
 export default defineConfig({
   site,
   output: 'static',
-  integrations: [sitemap()],
+  trailingSlash: 'always',
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin') && !page.includes('/merci') && !page.includes('/forms/'),
+    }),
+  ],
   image: {
     // sharp installé pour l'optimisation des images importées depuis src/assets
   },

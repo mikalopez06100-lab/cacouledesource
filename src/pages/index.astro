@@ -10,7 +10,7 @@ import FAQ from '../components/sections/FAQ.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
 import { localBusinessJsonLd } from '../components/seo/schemas/localBusiness';
-import { faqPageJsonLd } from '../utils/seo';
+import { faqPageJsonLd, webSiteJsonLd } from '../utils/seo';
 import { faqGeneral, pageMeta } from '../config/site';
 import { getCollection } from 'astro:content';
 
@@ -22,8 +22,11 @@ const chantiers = (await getCollection('chantiers'))
 const meta = pageMeta.home;
 ---
 
-<PageLayout title={meta.title} description={meta.description}>
-  <JsonLd slot="head" data={[localBusinessJsonLd(), faqPageJsonLd(faqGeneral)]} />
+<PageLayout title={meta.title} description={meta.description} path="/">
+  <JsonLd
+    slot="head"
+    data={[webSiteJsonLd(), localBusinessJsonLd(), faqPageJsonLd(faqGeneral)]}
+  />
 
   <Hero />
   <Presentation />

@@ -4,14 +4,17 @@ interface Props {
   title: string;
   description?: string;
   light?: boolean;
+  /** h1 pour les pages principales, h2 pour les sections internes */
+  as?: 'h1' | 'h2';
 }
 
-const { eyebrow, title, description, light = false } = Astro.props;
+const { eyebrow, title, description, light = false, as = 'h2' } = Astro.props;
 const eyebrowStyle = light ? 'color: var(--accent)' : undefined;
+const TitleTag = as;
 ---
 
 <div class="section-header">
   <div class="eyebrow" style={eyebrowStyle}>{eyebrow}</div>
-  <h2>{title}</h2>
+  <TitleTag>{title}</TitleTag>
   {description && <p>{description}</p>}
 </div>

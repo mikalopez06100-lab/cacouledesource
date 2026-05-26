@@ -9,9 +9,13 @@ const { items } = Astro.props;
 <nav class="breadcrumbs" aria-label="Fil d'Ariane">
   <ol>
     <li><a href="/">Accueil</a></li>
-    {items.map((item) => (
+    {items.map((item, index) => (
       <li>
-        {item.url ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}
+        {index === items.length - 1 ? (
+          <span aria-current="page">{item.name}</span>
+        ) : (
+          <a href={item.url}>{item.name}</a>
+        )}
       </li>
     ))}
   </ol>

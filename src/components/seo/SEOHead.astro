@@ -7,6 +7,7 @@ interface Props {
   description: string;
   path?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   noindex?: boolean;
 }
 
@@ -15,19 +16,28 @@ const {
   description,
   path = Astro.url.pathname,
   ogImage = site.defaultOgImage,
+  ogImageAlt,
   noindex = false,
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
+const imageAlt = ogImageAlt ?? title;
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content={description} />
+<meta name="author" content={site.owner} />
+<meta name="geo.region" content="FR-83" />
+<meta name="geo.placename" content={`${site.address.city}, Var`} />
 <title>{title}</title>
 <link rel="canonical" href={canonical} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+{noindex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+)}
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_FR" />
@@ -35,12 +45,16 @@ const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
 <meta property="og:site_name" content={site.name} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<meta name="theme-color" content="#0F4C75" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

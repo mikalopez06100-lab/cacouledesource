@@ -3,7 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import BeforeAfter from '../../components/chantiers/BeforeAfter.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
 import JsonLd from '../../components/seo/JsonLd.astro';
-import { breadcrumbJsonLd, absoluteUrl } from '../../utils/seo';
+import { breadcrumbJsonLd, chantierArticleJsonLd } from '../../utils/seo';
 import { formatChantierDate, getChantierAlt } from '../../utils/chantiers';
 import { getCollection, render } from 'astro:content';
 
@@ -20,24 +20,7 @@ const { Content } = await render(chantier);
 const { titre, ville, type, date, surface, description, photoApres, galerie } = chantier.data;
 const path = `/realisations/${chantier.id}`;
 
-const imageObjects = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'ImageObject',
-    contentUrl: absoluteUrl(photoApres),
-    description: getChantierAlt(chantier, 'après'),
-  },
-  ...(chantier.data.photoAvant
-    ? [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'ImageObject',
-          contentUrl: absoluteUrl(chantier.data.photoAvant),
-          description: getChantierAlt(chantier, 'avant'),
-        },
-      ]
-    : []),
-];
+const ogAlt = getChantierAlt(chantier, 'après');
 ---
 
 <PageLayout
@@ -45,6 +28,7 @@ const imageObjects = [
   description={description.slice(0, 160)}
   path={path}
   ogImage={photoApres}
+  ogImageAlt={ogAlt}
   breadcrumbs={[
     { name: 'Réalisations', url: '/realisations' },
     { name: titre, url: path },
@@ -53,7 +37,7 @@ const imageObjects = [
   <JsonLd
     slot="head"
     data={[
-      ...imageObjects,
+      chantierArticleJsonLd(chantier, path),
       breadcrumbJsonLd([
         { name: 'Accueil', url: '/' },
         { name: 'Réalisations', url: '/realisations' },

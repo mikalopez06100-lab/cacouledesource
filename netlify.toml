@@ -5,7 +5,12 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Formulaire de contact Netlify Forms
+# Formulaire de contact : page de confirmation après envoi Netlify Forms
+[[redirects]]
+  from = "/merci"
+  to = "/merci/"
+  status = 301
+
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"

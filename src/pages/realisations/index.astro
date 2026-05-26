@@ -3,7 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import ChantierGrid from '../../components/chantiers/ChantierGrid.astro';
 import JsonLd from '../../components/seo/JsonLd.astro';
-import { breadcrumbJsonLd } from '../../utils/seo';
+import { breadcrumbJsonLd, itemListJsonLd } from '../../utils/seo';
 import { pageMeta } from '../../config/site';
 import { getCollection } from 'astro:content';
 
@@ -27,18 +27,27 @@ const path = '/realisations';
 >
   <JsonLd
     slot="head"
-    data={breadcrumbJsonLd([
-      { name: 'Accueil', url: '/' },
-      { name: 'Réalisations', url: path },
-    ])}
+    data={[
+      itemListJsonLd(
+        chantiers.map((c) => ({
+          name: `${c.data.titre} — ${c.data.ville}`,
+          url: `/realisations/${c.id}`,
+        })),
+      ),
+      breadcrumbJsonLd([
+        { name: 'Accueil', url: '/' },
+        { name: 'Réalisations', url: path },
+      ]),
+    ]}
   />
 
   <section class="gallery" style="padding-top: 140px">
     <div class="container">
       <SectionHeader
+        as="h1"
         eyebrow="Réalisations"
         title="Avant / après : chantiers dans le Var"
-        description="Rénovations de salles de bain, plomberie et dépannages réalisés par David COLLONGE — photos authentiques de chantiers."
+        description="Rénovations de salles de bain, plomberie et dépannages réalisés par David COLLONGE à Toulon, Six-Fours, La Garde, Le Pradet, Le Lavandou, Brignoles et dans le Var."
       />
       <ChantierGrid chantiers={chantiers} showFilters activeType={activeType} />
     </div>

@@ -14,14 +14,23 @@ interface Props {
   description: string;
   path?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
   breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title, description, path, ogImage, breadcrumbs } = Astro.props;
+const { title, description, path, ogImage, ogImageAlt, noindex, breadcrumbs } = Astro.props;
 const currentPath = path ?? Astro.url.pathname;
 ---
 
-<BaseLayout title={title} description={description} path={currentPath} ogImage={ogImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  path={currentPath}
+  ogImage={ogImage}
+  ogImageAlt={ogImageAlt}
+  noindex={noindex}
+>
   <slot name="head" slot="head" />
   <Header currentPath={currentPath} />
   <main id="main-content">

@@ -1,0 +1,33 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Icon from '../components/ui/Icon.astro';
+import { site } from '../config/site';
+
+const path = '/merci';
+const title = 'Demande envoyée — Ça Coule de Source';
+const description = 'Votre message a bien été transmis à David COLLONGE. Réponse sous 24 à 48 h ouvrées.';
+---
+
+<PageLayout title={title} description={description} path={path} noindex>
+  <section class="page-intro" style="padding-top: 160px; padding-bottom: 80px">
+    <div class="container prose-content" style="text-align: center; max-width: 560px">
+      <p class="eyebrow">Message reçu</p>
+      <h1>Merci, votre demande a bien été envoyée.</h1>
+      <p>
+        David COLLONGE vous recontacte sous <strong>24 à 48 h ouvrées</strong> au numéro ou par email que vous avez
+        indiqués.
+      </p>
+      <p>
+        <strong>Urgence plomberie ?</strong> Appelez directement le{' '}
+        <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px">
+        <a href="/" class="btn-primary">
+          Retour à l'accueil
+          <Icon name="arrow" size={18} />
+        </a>
+        <a href="/realisations" class="btn-secondary">Voir les réalisations</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

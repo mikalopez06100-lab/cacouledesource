@@ -8,16 +8,24 @@ interface Props {
   description: string;
   path?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   noindex?: boolean;
 }
 
-const { title, description, path, ogImage, noindex } = Astro.props;
+const { title, description, path, ogImage, ogImageAlt, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
-    <SEOHead title={title} description={description} path={path} ogImage={ogImage} noindex={noindex} />
+    <SEOHead
+      title={title}
+      description={description}
+      path={path}
+      ogImage={ogImage}
+      ogImageAlt={ogImageAlt}
+      noindex={noindex}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <slot name="head" />
   </head>

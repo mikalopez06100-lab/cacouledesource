@@ -5,9 +5,11 @@ import ContactForm from '../forms/ContactForm.astro';
 
 interface Props {
   showForm?: boolean;
+  titleAs?: 'h1' | 'h2';
 }
 
-const { showForm = true } = Astro.props;
+const { showForm = true, titleAs = 'h2' } = Astro.props;
+const TitleTag = titleAs;
 ---
 
 <section class="contact" id="contact">
@@ -16,7 +18,7 @@ const { showForm = true } = Astro.props;
       <div class="contact-grid">
         <div>
           <div class="eyebrow" style="color: var(--accent)">Contact</div>
-          <h2>Parlons de votre projet.</h2>
+          <TitleTag>Parlons de votre projet.</TitleTag>
           <p>
             Que ce soit pour un dépannage rapide ou un projet de rénovation complète, je vous réponds rapidement avec un
             premier diagnostic clair.

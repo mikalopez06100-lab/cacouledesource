@@ -13,7 +13,11 @@ const width = isFooter ? 320 : 240;
 const height = isFooter ? 94 : 70;
 ---
 
-<a href="/" class:list={['logo-brand', isFooter && 'logo-brand--footer']}>
+<a
+  href="/"
+  class:list={['logo-brand', isFooter && 'logo-brand--footer']}
+  aria-label={`${site.name} — ${site.owner}, plombier à La Garde (Var), retour à l'accueil`}
+>
   <picture>
     <source srcset={webp} type="image/webp" />
     <img

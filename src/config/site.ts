@@ -222,33 +222,33 @@ export const faqPlomberie: FaqItem[] = [
 /** Métadonnées SEO par page */
 export const pageMeta = {
   home: {
-    title: 'Ça Coule de Source — David COLLONGE, plombier Var',
+    title: 'Ça Coule de Source — David COLLONGE, plombier Var (83)',
     description:
-      'Ça Coule de Source — David COLLONGE, plombier dans le Var depuis 2013. Spécialiste rénovation salle de bain. Toulon, La Garde, Hyères, La Crau et alentours.',
+      'David COLLONGE, plombier à La Garde (83130) depuis 2013. Rénovation salle de bain, dépannage et plomberie à Toulon, Six-Fours, La Seyne, Hyères et le Var. Devis gratuit — 06 50 16 02 38.',
   },
   renovation: {
     title: 'Rénovation salle de bain Toulon & Var — David COLLONGE',
     description:
-      'Rénovation salle de bain clé en main à Toulon, La Garde et dans le Var. Artisan plombier depuis 2013. Devis gratuit, un seul interlocuteur.',
+      'Rénovation salle de bain clé en main à Toulon, La Garde, Six-Fours et dans le Var. Douche à l\'italienne, carrelage, plomberie. Artisan depuis 2013 — devis gratuit.',
   },
   plomberie: {
     title: 'Plombier dépannage Toulon & Var — Ça Coule de Source',
     description:
-      'Plomberie générale et dépannage urgent à La Garde, Toulon et le grand Toulonnais. Fuites, chauffe-eau, canalisations. David COLLONGE, plombier depuis 2013.',
+      'Dépannage plomberie et installations à La Garde, Toulon, Six-Fours, La Seyne et le Var. Fuites, chauffe-eau, canalisations. David COLLONGE — 06 50 16 02 38.',
   },
   realisations: {
-    title: 'Réalisations plomberie & salles de bain — Var',
+    title: 'Réalisations plomberie & salles de bain — Var (83)',
     description:
-      'Photos avant/après de chantiers de rénovation salle de bain et plomberie réalisés par David COLLONGE dans le Var.',
+      'Photos avant/après : rénovations salle de bain et plomberie à Toulon, Six-Fours, La Garde, Le Pradet, Le Lavandou, Brignoles… Chantiers de David COLLONGE, plombier Var.',
   },
   zones: {
     title: 'Zone d\'intervention plombier Var — Toulon, La Garde, Hyères',
     description:
-      'David COLLONGE intervient dans 18 communes du Var autour de La Garde et Toulon. Temps de trajet et liste des villes desservies.',
+      'Plombier à La Garde : 18 communes du Var (Toulon, Six-Fours, La Seyne, Hyères, Le Pradet…). Rénovation SDB et dépannage — rayon ~40 min.',
   },
   contact: {
-    title: 'Contact & devis gratuit — Plombier La Garde',
+    title: 'Contact & devis gratuit — Plombier La Garde (Var)',
     description:
-      'Contactez David COLLONGE pour un devis plomberie ou rénovation salle de bain dans le Var. Réponse rapide.',
+      'Devis plomberie ou rénovation salle de bain dans le Var. David COLLONGE — 06 50 16 02 38, contact@cacouledesource.fr. Réponse rapide.',
   },
 } as const;

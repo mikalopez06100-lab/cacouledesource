@@ -145,11 +145,19 @@ Pour rediriger après login depuis une autre page :
 
 ## 10. Formulaire de contact
 
-Le formulaire utilise **Netlify Forms** (`data-netlify="true"`).  
+Le formulaire utilise **Netlify Forms** (`data-netlify="true"`), avec redirection vers `/merci/` après envoi.
+
+Fichiers concernés :
+
+- `src/components/forms/ContactForm.astro` — formulaire visible
+- `public/forms/contact-detect.html` — détection du formulaire au build (obligatoire avec Astro)
+- `src/pages/merci.astro` — page de confirmation
+
 Après le premier déploiement :
 
 1. **Forms** dans le dashboard Netlify → le formulaire `contact` doit apparaître.
-2. Configurez les **notifications email** vers David.
+2. Configurez les **notifications email** vers David (ex. `contact@cacouledesource.fr`).
+3. Testez depuis l’accueil (`/#contact`) et depuis `/contact/` : vous devez arriver sur `/merci/`, pas sur une page 404 Netlify.
 
 ---
 
@@ -162,6 +170,7 @@ Après le premier déploiement :
 | Identity : inscription ouverte | Repasser en **Invite only** |
 | Mot de passe oublié | Identity → user → « Send reset password » ou flux sur `/admin` |
 | Build échoue | Logs Deploys ; vérifier Node 22 et `npm run build` en local |
+| Formulaire → page 404 Netlify | Vérifier que `contact` apparaît dans **Forms** ; redéployer après ajout de `public/forms/contact-detect.html` ; `action="/merci/"` sur le formulaire |
 
 ---
 

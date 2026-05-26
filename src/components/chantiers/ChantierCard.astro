@@ -12,7 +12,7 @@ const slug = chantier.id;
 const alt = getChantierAlt(chantier, 'après');
 ---
 
-<a href={`/realisations/${slug}`} class="gallery-item">
+<a href={`/realisations/${slug}`} class="gallery-item" aria-label={`Voir la réalisation : ${titre}, ${ville}`}>
   <img src={photoApres} alt={alt} width="400" height="300" loading="lazy" decoding="async" />
   <div class="overlay">
     <span class="badge">{type}</span>
