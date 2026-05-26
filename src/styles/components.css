@@ -971,8 +971,29 @@ nav.site-nav {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+  .contact-info-item .text a,
+  .contact-info-item .text span {
+    font-size: clamp(20px, 5.2vw, 22px);
+  }
 }
 
+@media (max-width: 540px) {
+  .contact-wrapper {
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+  .contact-grid {
+    gap: 40px;
+  }
+  .contact-grid > div > p {
+    font-size: 17px;
+  }
+  .contact-form {
+    padding: 24px 18px;
+  }
+}
+
+.contact-grid h1,
 .contact-grid h2 {
   color: var(--white);
 }
@@ -1019,6 +1040,14 @@ nav.site-nav {
   font-family: var(--serif);
   font-size: 22px;
   color: var(--white);
+  line-height: 1.25;
+}
+
+.contact-info-item .text a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-info-item .text a:hover {
